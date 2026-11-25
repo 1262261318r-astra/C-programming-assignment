@@ -53,12 +53,12 @@ void generateReport(const char *filename) {
     int unsafe_count = 0;
     int defect_count = 0;
 
-    printf(" \n");
+    printf("=================================================================== \n");
     printf("                 UNDERWATER ROBOT INSPECTION REPORT                 \n");
-    printf(" \n");
+    printf("=================================================================== \n");
     printf("%-6s %-8s %-10s %-8s %-9s %-15s %-8s\n", 
            "ID", "Depth", "Pressure", "Temp", "Battery", "Defect", "Status");
-    printf(" \n");
+    printf("------------------------------------------------------------------- \n");
 
     while (fread(&rec, sizeof(struct RobotRecord), 1, fp) == 1) {
         total_records++;
@@ -86,12 +86,12 @@ void generateReport(const char *filename) {
 
     fclose(fp);
 
-    printf(" \n");
+    printf("=================================================================== \n");
     printf("Total Records Analyzed : %d\n", total_records);
     printf("Safe Records           : %d\n", total_records - unsafe_count);
     printf("Unsafe Records         : %d\n", unsafe_count);
     printf("Records with Defects   : %d\n", defect_count);
-    printf(" \n");
+    printf("=================================================================== \n");
 }
 
 int main() {
